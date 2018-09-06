@@ -12,18 +12,29 @@ abstract class Cuentas
     $this->nroCuenta = $nroCuenta;
     $this->clienteAsociado = $clienteAsociado;
   }
+  public function informarSaldo ()
+  {
+    return "Saldo: $".$this->saldo;
+  }
 
   public function depositar(int $saldo)
   {
-    $this->saldo = $saldo+=$saldo;
+    echo $this->informarSaldo()."<br>";
+    $this->saldo +=$saldo;
+
+    return ("Deposito: $".$saldo."<br>"."Cuenta: ".$this->nroCuenta."<br>"."Saldo Disponible: $".$this->saldo)."<br>";
   }
 
   public function extraer(int $saldo)
   {
-    if ($saldo <= $this->saldo)
+    echo $this->informarSaldo()."<br>";
+    if ($this->saldo >= $saldo)
     {
-        $this->saldo-=$saldo;
-        return $saldo;
+      $this->saldo -= $saldo;
+      return ("Extraccion: $".$saldo."<br>"."Cuenta: ".$this->nroCuenta."<br>"."Saldo Disponible: $".$this->saldo)."<br>";
+    }else
+    {
+      return ("Saldo insuficiente");
     }
   }
 }

@@ -12,14 +12,14 @@ class Cheque
     $this->bancoEmisor = $bancoEmisor;
   }
 
-  public function pedirMonto(int $monto)
+  public function pedirMonto()
   {
-    echo "Monto del cheque: ".$monto;
+    return $this->monto;
   }
 
-  public function pedirBanco(int $bancoEmisor))
+  public function pedirBanco()
   {
-    echo "Monto del cheque: ".$bancoEmisor;
+    return $this->bancoEmisor;
   }
 }
  ?>

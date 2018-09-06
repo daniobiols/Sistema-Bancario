@@ -8,13 +8,9 @@ abstract class Clientes
   {
     $this->nroCliente = $nroCliente;
   }
-
-  public function identificar(int $nroCliente)
+  public function identificar()
   {
-
+    return ("Nombre y Apellido: ".$this->nombre." ".$this->apellido."<br>"."DNI: ".$this->dni."<br>"."Numero de Cliente: ".$this->nroCliente);
   }
 }
-
-
-
- ?>
+?>

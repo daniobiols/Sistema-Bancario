@@ -2,7 +2,7 @@
 
 class CajaDeAhorro extends Cuentas
 {
-  protected $tasaInt;
+  protected $tasaInt=5;
 
   public function __construct($tasaInt, $nroCuenta, $clienteAsociado)
   {
@@ -10,21 +10,12 @@ class CajaDeAhorro extends Cuentas
     parent::__construct($nroCuenta, $clienteAsociado);
   }
 
-  public function extraer(int $saldo)
+  public function cobrarInt()
   {
-    if ($saldo <= $this->saldo)
-    {
-        $this->saldo-=$saldo;
-        return $saldo;
-    }else {
-        echo "No cuentas con esa cantidad de dinero";
-    }
-  }
-
-  public function cobrarInt(int $tasaInt)
-  {
-    $this->saldo = $this->saldo* $tasaInt;
-    return $this->saldo = $this->saldo / 100;
+    echo $this->informarSaldo()."<br>";
+    $valor = (($this->saldo * $this->tasaInt)/ 100);
+    $this->saldo += $valor;
+    return "Interes ganado en la cuenta " .$this->nroCuenta.": $".$valor."<br>"."Saldo Disponible: $".$this->saldo;
   }
 }
 
