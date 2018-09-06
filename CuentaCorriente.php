@@ -5,9 +5,10 @@ class CuentaCorriente extends Cuentas
 
   protected $giroDesc;
 
-  public function __construct($giroDesc)
+  public function __construct($giroDesc, $nroCuenta, $clienteAsociado)
   {
     $this->giroDesc = $giroDesc;
+    parent::__construct($nroCuenta, $clienteAsociado);
   }
 
   public function depositarCheque (Cheque $cheque)

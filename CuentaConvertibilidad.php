@@ -3,11 +3,11 @@
 class CuentaConvertibilidad extends CuentaCorriente
 {
 
-  protected $saldoDolares;
+  protected $saldoDolares=0;
 
-  function __construct($saldoDolares)
+  function __construct($nroCuenta, $clienteAsociado)
   {
-    $this->$saldoDolares = 0;
+    parent::__construct($nroCuenta, $clienteAsociado);
   }
 
   public function depositarDolares(int $saldo)
@@ -17,9 +17,10 @@ class CuentaConvertibilidad extends CuentaCorriente
 
   public function extraerDolares(int $saldo)
   {
-    if ($saldo <= $this->saldo) {
-        $this->$saldoDolares-=$saldo;
-        return $saldoDolares;
+    if ($saldo <= $this->saldoDolares)
+    {
+      $this->$saldoDolares-=$saldo;
+      return $saldoDolares;
     }else {
         echo "Saldo en dolares insuficiente";
     }
@@ -28,13 +29,13 @@ class CuentaConvertibilidad extends CuentaCorriente
   public function convertirPesos(int $tasa)
   {
     $this->$saldoDolares = $this->$saldoDolares / $tasa;
-    var_dump($this->$saldoDolares);
+    return ($this->$saldoDolares);
   }
 
   public function convertirDolares(int $tasa)
   {
     $this->$saldoDolares = $this->$saldoDolares * $tasa;
-    var_dump($this->$saldoDolares);
+    return ($this->$saldoDolares);
   }
 }
  ?>

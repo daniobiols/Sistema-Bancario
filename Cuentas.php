@@ -1,20 +1,16 @@
 <?php
 
-require_once('Clientes.php');
-require_once('Individual.php');
-
 abstract class Cuentas
 {
 
   protected $nroCuenta;
   protected $clienteAsociado;
-  protected $saldo;
+  protected $saldo=0;
 
-  public function __construct($nroCuenta, Cliente $clienteAsociado)
+  public function __construct($nroCuenta, $clienteAsociado)
   {
     $this->nroCuenta = $nroCuenta;
     $this->clienteAsociado = $clienteAsociado;
-    $this->saldo = 0;
   }
 
   public function depositar(int $saldo)
@@ -30,6 +26,5 @@ abstract class Cuentas
         return $saldo;
     }
   }
-
 }
  ?>
